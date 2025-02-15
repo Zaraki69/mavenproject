@@ -1,0 +1,17 @@
+pipeline
+{
+    agent any 
+    stages
+    { stage("SCM checkout"){
+        steps{ https://github.com/Zaraki69/mavenproject.git 
+        }
+    }
+        
+    }
+    stage (code compile){
+        steps{withMaven(globalMavenSettingsConfig: '', jdk: 'JDK_HOME', maven: 'MAVEN_HOME', mavenSettingsConfig: '', traceability: true) {
+    sh "mvn complie"
+}}
+    }
+
+}
