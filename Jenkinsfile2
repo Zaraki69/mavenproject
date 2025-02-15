@@ -1,11 +1,11 @@
 pipeline{
     agent any
     stages{
-        stage(scm checkout){
+        stage("scm checkout"){
             steps{https://github.com/Zaraki69/mavenproject.git
             }
         }
-        stage(code compile){
+        stage("code compile"){
             steps{
                 withMaven(globalMavenSettingsConfig: '', jdk: 'JDK_HOME', maven: 'MAVEN_HOME', mavenSettingsConfig: '', traceability: true) {
                 sh "mvn compile"}
