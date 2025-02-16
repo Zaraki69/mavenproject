@@ -3,71 +3,49 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>One Piece Fan Page</title>
+    <title>One Piece Fan Site</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <style>
-        @import url('https://fonts.googleapis.com/css2?family=Pirata+One&display=swap');
-        body {
-            background: url('https://wallpapercave.com/wp/wp4056321.jpg') no-repeat center center fixed;
-            background-size: cover;
-            color: white;
-            font-family: 'Pirata One', cursive;
-            text-shadow: 2px 2px 8px black;
-        }
-        .container {
-            text-align: center;
-            padding: 50px;
-            background: rgba(0, 0, 0, 0.7);
-            border-radius: 10px;
-            display: inline-block;
-        }
-        .title {
-            font-size: 4rem;
-            text-shadow: 4px 4px 10px yellow;
-        }
-        .subtitle {
-            font-size: 1.5rem;
-            margin-top: 10px;
-        }
-        .button {
-            margin-top: 20px;
-            padding: 10px 20px;
-            font-size: 1.2rem;
-            color: black;
-            background-color: yellow;
-            border: 2px solid red;
-            border-radius: 5px;
-            text-decoration: none;
-            transition: 0.3s;
-        }
-        .button:hover {
-            background-color: red;
-            color: white;
-        }
-        .character {
-            margin-top: 30px;
-        }
-        .character img {
-            width: 200px;
-            height: auto;
-            border-radius: 10px;
-            box-shadow: 2px 2px 10px yellow;
-        }
-    </style>
 </head>
-<body>
-    <div class="flex items-center justify-center h-screen">
-        <div class="container">
-            <h1 class="title">Set Sail for the Grand Line!</h1>
-            <p class="subtitle">"I am going to be the Pirate King!" - Monkey D. Luffy</p>
-            <a href="#" class="button">Join the Crew</a>
-            <div class="character">
-                <img src="https://upload.wikimedia.org/wikipedia/en/6/6f/Monkey_D_Luffy.png" alt="Luffy">
-                <img src="https://upload.wikimedia.org/wikipedia/en/2/2c/Roronoa_Zoro.png" alt="Zoro">
-                <img src="https://upload.wikimedia.org/wikipedia/en/5/50/Nami_One_Piece.png" alt="Nami">
+<body class="bg-gray-900 text-white">
+    <header class="text-center py-6 bg-red-600">
+        <h1 class="text-4xl font-bold">One Piece Fan Site</h1>
+    </header>
+
+    <main class="container mx-auto p-6">
+        <section class="text-center">
+            <h2 class="text-2xl font-semibold">Featured Character</h2>
+            <div id="featured-character" class="mt-4">
+                <img id="character-img" src="https://via.placeholder.com/300" alt="Character" class="mx-auto rounded-lg shadow-lg">
+                <p id="character-name" class="mt-2 text-xl">Click the button to reveal a character!</p>
             </div>
-        </div>
-    </div>
+            <button onclick="randomCharacter()" class="mt-4 px-4 py-2 bg-yellow-500 text-black rounded-lg font-bold hover:bg-yellow-400">Reveal Character</button>
+        </section>
+        
+        <section class="mt-10">
+            <h2 class="text-2xl font-semibold text-center">Gallery</h2>
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mt-4">
+                <img src="https://via.placeholder.com/150" alt="Luffy" class="rounded-lg shadow-lg">
+                <img src="https://via.placeholder.com/150" alt="Zoro" class="rounded-lg shadow-lg">
+                <img src="https://via.placeholder.com/150" alt="Nami" class="rounded-lg shadow-lg">
+                <img src="https://via.placeholder.com/150" alt="Sanji" class="rounded-lg shadow-lg">
+            </div>
+        </section>
+    </main>
+
+    <script>
+        const characters = [
+            { name: "Monkey D. Luffy", img: "https://via.placeholder.com/300" },
+            { name: "Roronoa Zoro", img: "https://via.placeholder.com/300" },
+            { name: "Nami", img: "https://via.placeholder.com/300" },
+            { name: "Sanji", img: "https://via.placeholder.com/300" }
+        ];
+
+        function randomCharacter() {
+            const randomIndex = Math.floor(Math.random() * characters.length);
+            document.getElementById('character-img').src = characters[randomIndex].img;
+            document.getElementById('character-name').innerText = characters[randomIndex].name;
+        }
+    </script>
 </body>
 </html>
 
